@@ -51,11 +51,11 @@ class AuthController extends Controller
         try{
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials)) {
-                return redirect()->intended('dashboard')
+                return redirect()->route('product.list')
                     ->withSuccess('You have Successfully loggedin');
             }
             $request->session()->flash('message','Credential not valid');
-            return redirect("login");;
+            return redirect()->route('login');
         } catch (\Exception $exception) {
             Log::critical($exception);
             Log::critical('Code 503 | ErrorCode:B003  postLogin page');
@@ -69,15 +69,15 @@ class AuthController extends Controller
      */
     public function postRegistration(CreateUserRequest $request)
     {
-        try{
+        /*try{*/
             $data = $request->all();
             $check = $this->create($data);
-            return redirect("login")->withSuccess('Great! You have Successfully Registered');
-        } catch (\Exception $exception) {
+            return redirect()->route('login')->withSuccess('Great! You have Successfully Registered');
+        /*} catch (\Exception $exception) {
             Log::critical($exception);
             Log::critical('Code 503 | ErrorCode:B004  postRegistration page');
             abort('404');
-        }
+        }*/
     }
     /**
      * dashboard render

@@ -70,18 +70,18 @@
                         $('.alert-success').show(function(){
                             $(this).html(successData.msg);
                         });
-                      /*  window.setTimeout(function(){
+                       window.setTimeout(function(){
                             window.location.href = '{{route('product.list')}}';
-                        }, 5000);*/
+                        }, 5000);
 
                     },
                     error: function () {
                         $('.alert-danger').show(function(){
                             $(this).html(successData.msg);
                         });
-                        /*window.setTimeout(function(){
+                        window.setTimeout(function(){
                             window.location.href = '{{route('product.list')}}';
-                        }, 5000);*/
+                        }, 5000);
                     }
                 });
             });

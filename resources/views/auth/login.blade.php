@@ -8,10 +8,16 @@
                         <div class="card-header">Login</div>
                         <div class="card-body">
                             @if(Session::has('message'))
-                                <p class="alert alert-danger">{{ Session::get('message') }}</p>
+                                <div class="alert alert-danger alert-dismissible">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    {{ Session::get('message') }}
+                                </div>
                             @endif
                             @if(session('success'))
-                                <p class="alert alert-success">{{session('success')}}</p>
+                                <div class="alert alert-success alert-dismissible">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    {{session('success')}}
+                                </div>
                             @endif
                             <form action="{{ route('login.post') }}" method="POST">
                                 @csrf

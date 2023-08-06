@@ -69,15 +69,15 @@ class AuthController extends Controller
      */
     public function postRegistration(CreateUserRequest $request)
     {
-        /*try{*/
+        try{
             $data = $request->all();
             $check = $this->create($data);
             return redirect()->route('login')->withSuccess('Great! You have Successfully Registered');
-        /*} catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             Log::critical($exception);
             Log::critical('Code 503 | ErrorCode:B004  postRegistration page');
             abort('404');
-        }*/
+        }
     }
     /**
      * dashboard render

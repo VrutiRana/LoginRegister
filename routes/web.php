@@ -26,4 +26,6 @@ Route::middleware('auth')->group(function(){
 Route::prefix('product')->name('product.')->group(function () {
     Route::get('list', [\App\Http\Controllers\ProductController::class, 'index'])->name('list');
     Route::get('add', [\App\Http\Controllers\ProductController::class, 'create'])->name('add');
+    Route::post('upload-document', [\App\Http\Controllers\ProductController::class, 'store'])->name('upload-document-ajax');
+    Route::get('download-document/{id}', [\App\Http\Controllers\ProductController::class, 'downloadDoc'])->name('download-document-ajax');
 });

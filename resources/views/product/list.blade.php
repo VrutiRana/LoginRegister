@@ -5,10 +5,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">
-                            Document List
-                            <a class="btn btn-success" style="float: right" href="{{route('product.add')}}" name="add">Add</a>
-                        </div>
+                        
                         <div class="card-body">
                             @if(Session::has('message'))
                                 <div class="alert alert-danger alert-dismissible">
@@ -25,7 +22,7 @@
                                 <table class="table table-bordered">
 
                                         <tr>
-                                            <th> Document </th>
+                                            <th> Anime </th>
                                             <th> Action </th>
                                         </tr>
                                     <tbody>

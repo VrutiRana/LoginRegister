@@ -24,9 +24,13 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'firstname' => 'required|alpha',
+            'lastname' => 'required|alpha',
+            'username' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:6'
+            'mobile' => 'required|digits:10',
+            'password' => 'required|min:6|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/',
+            'cpassword' => 'required_with:password|same:password|min:6'
         ];
     }
 
@@ -38,7 +42,9 @@ class CreateUserRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required'        =>  "Name is required",
+            'firstname.required'        =>  "First Name is required",
+            'lastname.required'        =>  "First Name is required",
+            'username.required'        =>  "First Name is required",
             'email.required'        =>  "Email is required",
             'email.email'          => "Email is unique ",
             'password.required'     =>  "Password is required",

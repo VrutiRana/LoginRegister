@@ -51,7 +51,7 @@ class AuthController extends Controller
         try{
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials)) {
-                return redirect()->route('product.list')
+                return redirect()->route('dashboard')
                     ->withSuccess('You have Successfully loggedin');
             }
             $request->session()->flash('message','Credential not valid');
@@ -107,8 +107,11 @@ class AuthController extends Controller
     {
         try{
             return User::create([
-                'name' => $data['name'],
+                'firstname' => $data['firstname'],
+                'lastname' => $data['lastname'],
+                'username' => $data['username'],
                 'email' => $data['email'],
+                'mobile' => $data['mobile'],
                 'password' => Hash::make($data['password'])
             ]);
         } catch (\Exception $exception) {
